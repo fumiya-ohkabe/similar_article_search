@@ -30,6 +30,9 @@ CREATE TABLE `articles` (
   `status` int(11) DEFAULT '0',
   `title` varchar(255) DEFAULT NULL,
   `category` varchar(255) DEFAULT NULL,
+  `link` text,
+  `views` int(11) DEFAULT NULL,
+  `loves` int(11) DEFAULT NULL,
   `writer_name` varchar(255) DEFAULT NULL,
   `writer_link` text,
   `summary` text,
@@ -40,7 +43,6 @@ CREATE TABLE `articles` (
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 
 
 # Dump of table htmls
