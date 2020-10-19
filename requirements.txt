@@ -1,6 +1,7 @@
 backpack==0.1
 beautifulsoup4==4.9.3
 blinker==1.4
+bottle==0.12.18
 certifi==2020.6.20
 chardet==3.0.4
 cleo==0.6.8
@@ -8,8 +9,10 @@ emoji==0.6.0
 Faker==0.8.18
 idna==2.10
 inflection==0.3.1
+Jinja2==2.11.2
 joblib==0.17.0
 lazy-object-proxy==1.5.1
+MarkupSafe==1.1.1
 mecab==0.996.2
 mysqlclient==2.0.1
 numpy==1.19.2

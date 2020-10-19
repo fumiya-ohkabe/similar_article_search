@@ -1,0 +1,30 @@
+{% extends "base.j2" %}
+
+{% block content %}
+  <div class="container bg-light">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>タイトル</th>
+          <th>カテゴリー</th>
+          <th>ライター</th>
+          <th>閲覧数</th>
+          <th>いいね</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for result in results %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td><a href="{{ result['link'] }}" target="_blank">{{ result["title"] }}</a></td>
+            <td>{{ result["category"] }}</td>
+            <td>{{ result["writer_name"] }}</td>
+            <td>{{ result["views"] }}</td>
+            <td>{{ result["loves"] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
