@@ -1,0 +1,11 @@
+{% extends "base.j2" %}
+
+{% block content %}
+  <form class="container-fluid" action="/search" method="post">
+    <div class="form-group">
+      <label for="article_text">テキストを入力してください</label>
+      <textarea class="form-control" id="article_text" name="article_text" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">類似記事を検索する</button>
+  </form>
+{% endblock %}
