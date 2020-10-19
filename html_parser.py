@@ -7,9 +7,14 @@ for htmls in Html.where('status', 0).chunk(100):
     for html in htmls:
         html.update(status=1)
         soup = BeautifulSoup(html.html, 'html.parser')
+        url_record = Url.where("id", html.url_id).first()
+
         obj = {}
         obj["html_id"]              = html.id
         obj["title"]                = soup.select("h1")[0].get_text().strip()
+        obj["link"]                 = url_record.url
+        obj["views"]                = url_record.views
+        obj["loves"]                = url_record.loves
         obj["summary"]              = soup.select(".articleLead")[0].get_text().strip()
         obj["body"]                 = "".join([c.get_text() for c in soup.select(".article_content")])
 
