@@ -1,0 +1,26 @@
+{% extends "base.j2" %}
+
+{% block content %}
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>title</th>
+          <th>category</th>
+          <th>writer_name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for result in results %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ result["title"] }}</td>
+            <td>{{ result["category"] }}</td>
+            <td>{{ result["writer_name"] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
