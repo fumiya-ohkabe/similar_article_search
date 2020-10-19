@@ -12,8 +12,7 @@ def create_url_model(soup):
         Url.insert(obj)
 
 
-# for i in range(1, 9999):
-for i in range(1, 750):
+for i in range(1, 9999):
     url = f"https://mery.jp/search?page={i}"
     html = get_html(url)
     soup = BeautifulSoup(html, 'html.parser')
