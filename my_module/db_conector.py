@@ -1,13 +1,26 @@
 from orator import DatabaseManager, Model
+import os
+
+#config = {
+#    'mysql': {
+#        'driver': 'mysql',
+#        'host': 'localhost',
+#        'database': 'similar_article_search',
+#        'user': 'root',
+#        'charset': 'utf8mb4',
+#        'password': '',
+#        'prefix': ''
+#    }
+#}
 
 config = {
     'mysql': {
         'driver': 'mysql',
-        'host': 'localhost',
+        'host': 'db-for-portfolio.cmu2cfndgdwo.ap-northeast-1.rds.amazonaws.com',
         'database': 'similar_article_search',
-        'user': 'root',
+        'user': 'admin',
         'charset': 'utf8mb4',
-        'password': '',
+        'password': os.environ["DB_PASSWORD"],
         'prefix': ''
     }
 }
