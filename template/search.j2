@@ -1,10 +1,13 @@
 {% extends "base.j2" %}
 
 {% block content %}
-  <form class="container-fluid" action="/search" method="post">
+  <div class="container-fluid card" style="width: 35rem;">
+    <h1>類似記事検索システム</h1>
+  </div>
+  <form class="container-fluid card" style="width: 35rem; height: 25rem;" action="/search" method="post">
     <div class="form-group">
       <label for="article_text">テキストを入力してください</label>
-      <textarea class="form-control" id="article_text" name="article_text" rows="5"></textarea>
+      <textarea class="form-control" id="article_text" name="article_text" rows="12"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">類似記事を検索する</button>
   </form>
