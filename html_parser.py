@@ -49,16 +49,18 @@ def parse_detail_feature(soup):
     ret["article_modified_at"]  = soup.select(".article-date")[0].get_text().strip().split("\n")[0].replace("更新：", "")
     return ret
 
-while True:
-    html = Html.where('status', 0).first()
-    if html == None:
-        break
+unfinished_job_ids = Html.where('status', 0).select("id").get().pluck("id").all()
 
+for id in unfinished_job_ids:
+    html = Html.where('id', id).first()
     html.update(status=1)
     url_record = Url.where("id", html.url_id).first()
     bf_dict = basic_feature(html, url_record)
-    soup = BeautifulSoup(html.html, 'html.parser')
-    df_dict = parse_detail_feature(soup)
-    features = {**bf_dict, **df_dict}
-    Article.insert(features)
-    html.update(status=2)
+    try:
+        soup = BeautifulSoup(html.html, 'html.parser')
+        df_dict = parse_detail_feature(soup)
+        features = {**bf_dict, **df_dict}
+        Article.insert(features)
+        html.update(status=2)
+    except:
+        html.update(status=3)
