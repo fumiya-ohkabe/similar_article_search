@@ -1,3 +1,5 @@
+CREATE DATABASE `similar_article_search` /*!40100 DEFAULT CHARACTER SET utf8mb4 */
+
 # ************************************************************
 # Sequel Pro SQL dump
 # Version 5446
