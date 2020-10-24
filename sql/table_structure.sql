@@ -7,9 +7,9 @@ CREATE DATABASE `similar_article_search` /*!40100 DEFAULT CHARACTER SET utf8mb4 
 # https://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: 127.0.0.1 (MySQL 5.7.24)
+# Host: db-for-portfolio.cmu2cfndgdwo.ap-northeast-1.rds.amazonaws.com (MySQL 5.7.24-log)
 # Database: similar_article_search
-# Generation Time: 2020-10-18 22:28:05 +0000
+# Generation Time: 2020-10-24 11:18:27 +0000
 # ************************************************************
 
 
@@ -43,8 +43,10 @@ CREATE TABLE `articles` (
   `article_modified_at` date DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `STATUS` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 
 # Dump of table htmls
@@ -57,7 +59,8 @@ CREATE TABLE `htmls` (
   `html` longtext,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `STATUS` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -73,7 +76,8 @@ CREATE TABLE `urls` (
   `loves` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `STATUS` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
