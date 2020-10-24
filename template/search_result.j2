@@ -11,6 +11,7 @@
           <th>ライター</th>
           <th>閲覧数</th>
           <th>いいね</th>
+          <th>類似度</th>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +23,7 @@
             <td>{{ result["writer_name"] }}</td>
             <td>{{ result["views"] }}</td>
             <td>{{ result["loves"] }}</td>
+            <td>{{ "%.1f"|format(result["similarity"] * 100|float) }} %</td>
           </tr>
         {% endfor %}
       </tbody>
