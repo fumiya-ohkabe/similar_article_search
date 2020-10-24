@@ -1,4 +1,4 @@
-from bottle import route, get, post, request, run
+from bottle import route, get, post, request, run, redirect
 import jinja2
 from bottle import TEMPLATE_PATH, jinja2_template as template
 from my_module.db_conector import *
@@ -13,6 +13,9 @@ def toppage():
 @route('/search', method=["GET", "POST"])
 def get_article():
     text = request.forms.article_text
+    # import pdb; pdb.set_trace();
+    if text == "":
+        redirect("/")
 
     # 入力テキストとの類似度を計算し記事idと類似度のlist of dictを返す
     similarities = show_similarities(text)
@@ -26,7 +29,7 @@ def get_article():
         target_article = [article for article in articles if article["id"] == similarity["id"]][0]
         similarity.update(target_article)
 
-    return template('search_result.j2', results=similarities)
+    return template('search_result.j2', text=text,results=similarities)
 
 
 run(host='localhost', port=8080, debug=True, reloader=True)
