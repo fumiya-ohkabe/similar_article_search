@@ -1,6 +1,7 @@
 *.DS_Store
 nohup.out
 *.log
+docs/*
 
 __pycache__
 !.gitkeep
