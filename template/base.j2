@@ -4,15 +4,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Sample</title>
+    <title>類似記事検索システム</title>
     <!-- BootstrapのCSS読み込み -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <!-- jQuery読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- BootstrapのJS読み込み -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $(function() {
+          var height=$("header").height();
+          $("body").css("margin-top", height + 10);//10pxだけ余裕をもたせる
+      });
+    </script>
+
   </head>
-  <body class="bg-primary">
+  <body class="bg-white" style="padding-bottom: 70px;">
     {% block content %} {% endblock %}
 
     <!-- Optional JavaScript -->
@@ -23,8 +31,6 @@
   </body>
 
   <footer class="fixed-bottom bg-dark">
-    <div class="container">
-      <p class="text-muted" align="center"><a href="/">topに戻る</a></p>
-    </div>
+      <p class="text-center"><a href="/">topに戻る</a></p>
   </footer>
 </html>

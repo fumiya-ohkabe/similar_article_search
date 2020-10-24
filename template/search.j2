@@ -1,14 +1,19 @@
 {% extends "base.j2" %}
 
 {% block content %}
-  <div class="container-fluid card" style="width: 35rem;">
-    <h1>類似記事検索システム</h1>
+<div class="mx-auto" style="width: 500px;">
+  <h1>類似記事検索システム</h1>
+  <p class="bg-light" align="">
+    これは女性向け情報サイトの類似記事検索です。<br>
+    入力されたテキストと類似コンテンツを抽出します。<br>
+    <a href="https://github.com/fumiya-ohkabe/similar_article_search">ソースコードはこちら。</a>
+  </p>
+</div>
+<form class="mx-auto card" style="width: 600px;" action="/search" method="post">
+  <div class="form-group">
+    <label aline="center" for="article_text">テキストを入力してください</label>
+    <textarea class="form-control" id="article_text" name="article_text" rows="12">『八月の鯨（はちがつのくじら）』というお店をご存知ですか？そこは渋谷にあるレトロな雰囲気のバーで、なんと映画のタイトルに合ったカクテルをバーテンダーさんが作ってくれるんだそう。メニューに載っているカクテルだけではなく、好きな映画の題名をリクエストすることもできるそうなので、映画好きさんはぜひ訪れてみてくださいね♡</textarea>
   </div>
-  <form class="container-fluid card" style="width: 35rem; height: 25rem;" action="/search" method="post">
-    <div class="form-group">
-      <label for="article_text">テキストを入力してください</label>
-      <textarea class="form-control" id="article_text" name="article_text" rows="12"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">類似記事を検索する</button>
-  </form>
+  <button type="submit" class="btn btn-primary">類似記事を検索する</button>
+</form>
 {% endblock %}
