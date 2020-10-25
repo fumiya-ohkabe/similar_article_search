@@ -1,4 +1,4 @@
-from bottle import route, get, post, request, run, redirect
+from bottle import route, get, post, request, run, redirect, static_file
 import jinja2
 from bottle import TEMPLATE_PATH, jinja2_template as template
 from my_module.db_conector import *
@@ -9,6 +9,10 @@ TEMPLATE_PATH.append("./template")
 @route('/', method=["GET"])
 def toppage():
     return template('search.j2')
+
+@route('/static/<file_path:path>')
+def static(file_path):
+    return static_file(file_path, root='./static')
 
 @route('/search', method=["GET", "POST"])
 def get_article():
